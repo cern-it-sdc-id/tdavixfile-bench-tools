@@ -1,0 +1,39 @@
+
+HOW TO RUN THE BENCH
+
+1- INSTALL a ROOT + TDAVIXFILE environment
+
+   See https://dmc.web.cern.ch/projects/davix/root-and-davix-tutorial for more details
+
+2- Configure your system.rootrc depending of your server usage
+   Example : Enable grid support for WLCG
+      
+   See here https://dmc.web.cern.ch/projects/davix/root-and-davix-tutorial#configTDavixFile
+
+3- install a C++ compiler + root headers files
+
+4- run ./build.sh
+
+
+5- download the test file http://root.cern.ch/files/h1big.root and place it on your tested server
+
+
+6- run ./testEvent [yourUrl]
+    Example ./testEvent http://root.cern.ch/files/h1big.root
+
+
+Example of result :
+
+Number of branches in the cache ...: 2
+Cache Efficiency ..................: 0.988857
+Cache Efficiency Rel...............: 0.999374
+Learn entries......................: 1
+Cached Reading.....................: 5481918 bytes in 1 transactions
+Reading............................: 4619 bytes in 3 uncached transactions
+Readahead..........................: 256000 bytes with overhead = 0 bytes
+Average transaction................: 5481.918000 Kbytes
+Number of blocks in current cache..: 4792, total size: 5591952
+Bytes read = 0
+Real Time =   2.943 s, CPUtime =   0.740 s
+
+

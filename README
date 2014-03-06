@@ -14,6 +14,9 @@ HOW TO RUN THE BENCH
    See here https://dmc.web.cern.ch/projects/davix/root-and-davix-tutorial#configTDavixFile
 
 3- install a C++ compiler + root headers files
+   Example under SL6:
+	sudo yum install gcc-c++
+	sudo yum install root-physics root-tree root-tree-player root-tree-viewer root-graf3d
 
 4- run ./build.sh
 

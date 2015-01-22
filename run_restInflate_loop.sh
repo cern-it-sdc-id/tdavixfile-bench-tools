@@ -17,7 +17,7 @@ while [ true ]
 do
 
 
-for ((i=1; i<= ${#file_list[@]}; i++))
+for ((i=0; i< ${#file_list[@]}; i++))
 do
 	echo "execute testInflate on ${file_list[${i}]}"
 	./testInflate ${file_list[${i}]} &> $1/${prefix_list[${i}]}-$RANDOM-`date +%s`

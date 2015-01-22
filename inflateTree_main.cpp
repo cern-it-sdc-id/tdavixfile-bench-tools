@@ -1,5 +1,7 @@
 #include "TFile.h"
 #include "TTree.h"
+#include "TStopwatch.h"
+#include <iostream>
 
 void inflateTree(const char *name = "h42",
                  const char *in = "root://eospps.cern.ch///eos/ppsscratch/test/h1big.root",
@@ -63,8 +65,8 @@ void inflateTree(const char *name = "h42",
    
 
     sw.Stop();
-    cout << "Drawing. Realtime: " <<      sw.RealTime()  << endl;
-    cout << "Drawing. Cputime : " <<      sw.CpuTime()  << endl;
+    std::cout << "Drawing. Realtime: " <<      sw.RealTime()  << std::endl;
+    std::cout << "Drawing. Cputime : " <<      sw.CpuTime()  << std::endl;
 	tin->PrintCacheStats();   
    
    

@@ -5,6 +5,9 @@ void inflateTree(const char *name = "h42",
                  const char *in = "root://eospps.cern.ch///eos/ppsscratch/test/h1big.root",
                  const char *out = "/tmp/h1big.root",  Int_t fact = 1)
 {
+	TStopwatch sw;
+	sw.Start();
+	
    // Get the input tree from the input file
    TFile *fin = TFile::Open(in);
    if (!fin || fin->IsZombie()) {
@@ -55,8 +58,17 @@ void inflateTree(const char *name = "h42",
 #endif
    // Finalize the writing out
    tout->Write();
+   
+   // print perf stats
+   
+
+    sw.Stop();
+    cout << "Drawing. Realtime: " <<      sw.RealTime()  << endl;
+    cout << "Drawing. Cputime : " <<      sw.CpuTime()  << endl;
+	tin->PrintCacheStats();   
+   
+   
    // Close the files
-   gDebug=4;
    fout->Close();
    fin->Close();
    // Cleanup
@@ -66,7 +78,7 @@ void inflateTree(const char *name = "h42",
 
 
 int main(int argc, char** argv){
-gDebug=0x02;
+//gDebug=0x02;
 
 inflateTree("h42", argv[1]);
 

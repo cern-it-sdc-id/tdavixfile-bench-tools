@@ -42,7 +42,9 @@ stringstream* GetBranchesStream(string fn, string trname, string branchestoberea
     TFile *f;
     f=TFile::Open(fn.c_str());
     if (!f) {
-      cout << "oops" << endl;
+      cout << "oops Impossible to open file !" << endl;
+      exit(-1)
+
     }
 
     int filesize=f->GetSize();
@@ -218,7 +220,9 @@ int read_OK(string fn, string trname, float percentage, float TTC, string branch
     TFile *f ;
 
   // Set up the Davix auth, for when Davix will be available
-    gEnv->SetValue("Davix.GSI.UserProxy", proxyfn.c_str());
+    if(proxyfn.size() > 0){
+	    gEnv->SetValue("Davix.GSI.UserProxy", proxyfn.c_str());
+    }    
     gEnv->SetValue("Davix.GSI.GridMode", "y");
     gEnv->SetValue("Davix.Debug", 0);
 
@@ -356,8 +360,17 @@ int read_OK(string fn, string trname, float percentage, float TTC, string branch
 
 
 int main(int argc, char** argv){
-	read_OK(argv[1],"physics",10,30,"0.17",getenv("X509_USER_PROXY"),"",-1,1);
+	if( argc <2){
+		std::cout << "Usage " << argv[0] << " [url] " << std::endl;	
+	}
+
+	char* proxy = getenv("X509_USER_PROXY");
+	if(proxy == NULL){
+		proxy = "";
+	}
+
+	read_OK(argv[1],"physics",10,30,"0.17",proxy,"",-1,1);
 
 
 }
-
+	

@@ -228,9 +228,6 @@ int readDPMWebDav(string fn, string trname, int percentage, float TTC, string br
     cout << "Starting event loop " << endl ;
     
     for (Int_t ev = 0; ev < nentries; ev++) {
-      //	  if (ev%10 == 0 ){
-      //	    cout << "processed" << ev << " entries" << endl; 
-      //	  }
       
       if (randoms[ev]==0) continue;
 		nb += tree->GetEntry(ev);

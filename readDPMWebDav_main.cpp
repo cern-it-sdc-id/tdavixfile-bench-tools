@@ -19,6 +19,12 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <sys/types.h>
+#include <unistd.h>
+
+
+#include "TIOPerfStats.h"
+
 
 void diskSt(long long * diskStat, string fn){
   
@@ -116,6 +122,10 @@ int readDPMWebDav(string fn, string trname, int percentage, float TTC, string br
     //gEnv->SetValue("TFile.AsyncPrefetching", 1);
 
     TStopwatch timer;
+    TIOPerfStat stats(gPerfStats);
+    gPerfStats= &stats;
+    
+    
     Double_t nb = 0;	
     bool checkHDD=true;
     long long diskS1[11];
@@ -189,7 +199,6 @@ int readDPMWebDav(string fn, string trname, int percentage, float TTC, string br
     if (endevent > 0 ) nentries = endevent; 
     cout << "nentries " << nentries << endl;
 
-	float toRead= (float) nentries * percentage/100;
 	int* randoms = new int[nentries];
 	
 	tree->SetCacheSize((int)(TTC*1024*1024));
@@ -277,6 +286,7 @@ int readDPMWebDav(string fn, string trname, int percentage, float TTC, string br
     cout<<"ETHERNETIN="<<netSt2[0]-netSt1[0]<<endl;
     cout<<"ETHERNETOUT="<<netSt2[1]-netSt1[1]<<endl;
     
+    stats.PrintStats();
     
     return 0;
 }

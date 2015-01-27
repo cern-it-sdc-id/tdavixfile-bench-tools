@@ -225,7 +225,7 @@ int readDPMWebDav(string fn, string trname, int percentage, float TTC, string br
     //TTreeCache::SetLearnEntries(1);
     TTreePerfStats *ps= new TTreePerfStats("ioperf",tree);
     // force IOPerstat as first stats tree, TTreePerfStats do not forward the hooks
-    gPerfStats= &stats;
+    stats.RegisterTree(tree);
        
  
     for (int i=0;i<nentries;i++) {
@@ -297,7 +297,7 @@ int readDPMWebDav(string fn, string trname, int percentage, float TTC, string br
 
 
 int main(int argc, char** argv){
-	//gDebug=5;
+	gDebug=5;
 	//davix_set_log_level(15);
 	if(argc < 2){
 		std::cout << "Usage: " << argv[0] <<" [url] " << std::endl;

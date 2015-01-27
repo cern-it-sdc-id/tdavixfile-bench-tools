@@ -115,6 +115,14 @@ public:
         std::cout << "TotalIOSize=" << cumulated_size << std::endl;
         std::cout << "TotialIOCalls=" << io_calls << std::endl;
     }
+    
+    
+    void RegisterTree(TTree* t){
+		   next = (TVirtualPerfStats*) t->GetPerfStats();
+		   t->SetPerfStats(this);
+		   
+		   gPerfStats = this;
+	}
 
 private:
     TVirtualPerfStats* next;

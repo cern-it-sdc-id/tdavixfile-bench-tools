@@ -6,9 +6,10 @@ file_list=( "http://https-server.cern.ch/group.test.hc.NTUP_SMWZ.root" "root://x
 	    "https://se2.ppgrid1.rhul.ac.uk/dpm/ppgrid1.rhul.ac.uk/home/dteam/group.test.hc.NTUP_SMWZ.root"  "root://se2.ppgrid1.rhul.ac.uk//dteam/group.test.hc.NTUP_SMWZ.root"             "https://lxfsra04a04.cern.ch/dpm/cern.ch/home/dteam/group.test.hc.NTUP_SMWZ.root" "root://lxfsra04a04.cern.ch//dteam/group.test.hc.NTUP_SMWZ.root" 
 	    "https://lcgse0.shef.ac.uk/dpm/shef.ac.uk/home/dteam/group.test.hc.NTUP_SMWZ.root" "root://lcgse0.shef.ac.uk//dteam/group.test.hc.NTUP_SMWZ.root"
 	    "https://gridpp09.ecdf.ed.ac.uk/dpm/ecdf.ed.ac.uk/home/dteam/group.test.hc.NTUP_SMWZ.root" "root://gridpp09.ecdf.ed.ac.uk//dteam/group.test.hc.NTUP_SMWZ.root"
-	    "https://t2-dpm-01.na.infn.it/dpm/na.infn.it/home/dteam/group.test.hc.NTUP_SMWZ.root" "root://t2-dpm-01.na.infn.it:1094//dteam/group.test.hc.NTUP_SMWZ.root")
-prefix_list=("http" "xroot" "http" "xroot" "http" "xroot" "http" "xroot" "http" "xroot" "http" "xroot")
-site_list=("STANDALONE" "STANDALONE" "RHUL" "RHUL" "CERN" "CERN" "SHEF" "SHEF" "ECDF" "ECDF" "NA-INFN" "NA-INFN") 
+	    "https://t2-dpm-01.na.infn.it/dpm/na.infn.it/home/dteam/group.test.hc.NTUP_SMWZ.root" "root://t2-dpm-01.na.infn.it:1094//dteam/group.test.hc.NTUP_SMWZ.root"
+	    "https://littlexrdhttp.cern.ch:1094/dynafeds_demo/HCfunc/group.test.hc.NTUP_SMWZ.root" "http://littlexrdhttp.cern.ch:1094/dynafeds_demo/HCfunc/group.test.hc.NTUP_SMWZ.root" "root://littlexrdhttp.cern.ch:1094//dynafeds_demo/HCfunc/group.test.hc.NTUP_SMWZ.root" )
+prefix_list=("http" "xroot" "http" "xroot" "http" "xroot" "http" "xroot" "http" "xroot" "http" "xroot" "http" "https" "xrootd")
+site_list=("STANDALONE" "STANDALONE" "RHUL" "RHUL" "CERN" "CERN" "SHEF" "SHEF" "ECDF" "ECDF" "NA-INFN" "NA-INFN" "XrdHTTP_CERN" "XrdHTTP_CERN" "XrdHTTP_CERN") 
 
 
 if [[ "$1" == "" ]]; then
